@@ -31,7 +31,8 @@
       "addressLocality": "Madrid",
       "addressCountry": "ES"
     },
-    "openingHours": "Mo-Fr 09:00-18:00"
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "areaServed": "Madrid"
   }
   </script>
 </head>
@@ -56,6 +57,7 @@
       <nav class="main-nav" aria-label="Navegación principal">
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
+        <a href="#como-trabajamos">Cómo trabajamos</a>
         <a href="#sobre-nosotros">Sobre nosotros</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -88,34 +90,47 @@
           </ul>
         </div>
 
-        <aside class="hero-panel" aria-label="Consulta informativa del despacho">
-          <div class="panel-top">
+        <aside class="hero-visual" aria-label="Consulta informativa del despacho">
+          <img
+            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80"
+            alt="Mesa de despacho con documentos legales"
+            width="900"
+            height="650"
+          />
+
+          <div class="hero-info-card">
             <span>Consulta informativa</span>
-            <strong>Sin compromiso</strong>
-          </div>
-
-          <div class="document-visual" aria-hidden="true">
-            <span class="doc doc-back"></span>
-            <span class="doc doc-front">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-
-          <div class="contact-summary">
             <h2>Cuéntanos tu caso</h2>
             <p>Te indicaremos el siguiente paso de forma sencilla y sin tecnicismos innecesarios.</p>
+
             <div class="summary-row">
-              <span>Horario</span>
+              <small>Horario</small>
               <strong>Lun - Vie · 9:00 - 18:00</strong>
-            </div>
-            <div class="summary-row">
-              <span>Ubicación</span>
-              <strong>Calle Alcalá 45, Madrid</strong>
             </div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="container trust-grid">
+        <article>
+          <span>01</span>
+          <h2>Consulta informativa</h2>
+          <p>Escuchamos tu situación y te orientamos sobre las opciones iniciales.</p>
+        </article>
+
+        <article>
+          <span>02</span>
+          <h2>Atención presencial y online</h2>
+          <p>Puedes contactar por teléfono, WhatsApp o acudir al despacho con cita.</p>
+        </article>
+
+        <article>
+          <span>03</span>
+          <h2>Presupuesto claro</h2>
+          <p>Te explicamos el alcance del servicio antes de empezar.</p>
+        </article>
       </div>
     </section>
 
@@ -158,6 +173,36 @@
             </div>
             <h3>Asesoramiento a empresas</h3>
             <p>Contratos, proveedores, impagos y consultas legales básicas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="como-trabajamos">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Cómo trabajamos</p>
+          <h2>Un proceso claro desde el primer contacto</h2>
+          <p>Sin pasos innecesarios. Primero entendemos tu caso y después te orientamos con claridad.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <span>1</span>
+            <h3>Nos cuentas tu caso</h3>
+            <p>Nos explicas brevemente la situación por teléfono, WhatsApp o formulario.</p>
+          </article>
+
+          <article class="process-card">
+            <span>2</span>
+            <h3>Revisamos la situación</h3>
+            <p>Valoramos la información inicial y vemos qué opciones pueden tener sentido.</p>
+          </article>
+
+          <article class="process-card">
+            <span>3</span>
+            <h3>Te indicamos el siguiente paso</h3>
+            <p>Te explicamos el camino recomendado y el posible alcance del servicio.</p>
           </article>
         </div>
       </div>
@@ -248,7 +293,7 @@
 
           <form class="contact-form" aria-label="Formulario de consulta">
             <h3>Enviar consulta</h3>
-            <p>Formulario visual de demostración. En una web real se conectaría al correo del despacho.</p>
+            <p class="small-note">Déjanos tus datos y te responderemos lo antes posible.</p>
 
             <label for="name">Nombre</label>
             <input id="name" name="name" type="text" placeholder="Tu nombre" />
@@ -266,6 +311,10 @@
       </div>
     </section>
   </main>
+
+  <a class="whatsapp-float" href="https://wa.me/34600000000?text=Hola%2C%20quiero%20hacer%20una%20consulta%20legal" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    WhatsApp
+  </a>
 
   <footer class="site-footer">
     <div class="container footer-grid">
