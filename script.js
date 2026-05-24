@@ -1,7 +1,9 @@
 const menuButton = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".main-nav");
+const header = document.querySelector(".site-header");
 const form = document.querySelector(".contact-form");
 const formNote = document.querySelector(".form-note");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (menuButton && menu) {
   menuButton.addEventListener("click", () => {
@@ -21,6 +23,14 @@ if (menuButton && menu) {
   });
 }
 
+function updateHeader() {
+  if (!header) return;
+  header.classList.toggle("scrolled", window.scrollY > 12);
+}
+
+window.addEventListener("scroll", updateHeader, { passive: true });
+updateHeader();
+
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
     const targetId = link.getAttribute("href");
@@ -30,9 +40,27 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     if (!target) return;
 
     event.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   });
 });
+
+if (!reduceMotion) {
+  const revealItems = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  revealItems.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min(index * 45, 180)}ms`;
+    observer.observe(item);
+  });
+} else {
+  document.querySelectorAll(".reveal").forEach((item) => item.classList.add("visible"));
+}
 
 if (form) {
   form.addEventListener("submit", (event) => {
